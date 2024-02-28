@@ -9,6 +9,7 @@ import io from 'socket.io-client'
 import makeToast from "./Toaster";
 import ErrorBoundary from './ErrorBoundary';
 import axios from "axios";
+import Homepage from "./pages/Homepage";
 axios.defaults.baseURL = 'http://localhost:8000';
 function App(){
   const [socket, setSocket] = React.useState(null);
@@ -45,6 +46,7 @@ React.useEffect(()=>{
         <Route path="/" element={<IndexPage/>} exact/>
         <Route path="/login" element={ <LoginPage setupSocket={setupSocket}/>}exact/> 
         <Route path="/register" element={<ResigterPage />} exact/>
+        <Route path="/home" element={<Homepage />} exact/>
         <Route path="/dashboard" element={<DashboardPage socket={socket} />} exact />
 
       </Routes>
