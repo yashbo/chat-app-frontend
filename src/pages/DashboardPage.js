@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import makeToast from '../Toaster';
 import { Link } from 'react-router-dom';
-
+const baseUrl=process.env.API_URL
 export default function DashboardPage(props) {
   const [chatrooms, setChatrooms] = useState([]);
   const chatroomNameRef = useRef(null);
 
   const getChatrooms = () => {
     axios
-      .get("http://localhost:8000/chatroom", {
+      .get(`${baseUrl}/chatroom`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("CC_Token"),
         },
