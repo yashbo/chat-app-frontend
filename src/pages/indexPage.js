@@ -7,7 +7,7 @@ export default function IndexPage(props) {
         const token = localStorage.getItem("CC_Token");
         console.log(token);
         if(!token){
-            redirect("/login");
+            redirect("/home");
         }
         else{
             redirect("/dashboard")
